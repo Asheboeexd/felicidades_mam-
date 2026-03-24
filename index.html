@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Mamá! 46 Primaveras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .mimi-font {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .polka-dot-bg {
+            background-image: radial-gradient(#ffffff 20%, transparent 20%),
+                              radial-gradient(#ffffff 20%, transparent 20%);
+            background-color: #ff4d6d; 
+            background-position: 0 0, 25px 25px;
+            background-size: 50px 50px;
+        }
+
+        .mimi-red {
+            background-color: #ff4d6d;
+        }
+
+        .mimi-bow {
+            color: #ff4d6d;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .card-photo {
+            border: 10px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            background: white;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .card-photo::before {
+            content: '\f4f1'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4d6d;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border: 3px solid white;
+        }
+
+        .card-photo:hover {
+            transform: rotate(0deg) scale(1.08) !important;
+            z-index: 30;
+        }
+
+        .img-fixed {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        /* Canvas para partículas nativas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 text-gray-800">
+
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Sección Principal -->
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 polka-dot-bg relative">
+        <div class="bg-white/95 p-10 rounded-[3rem] shadow-2xl max-w-2xl border-4 border-black z-10 relative">
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 flex gap-16">
+                <div class="w-20 h-20 bg-black rounded-full shadow-lg border-2 border-white"></div>
+                <div class="w-20 h-20 bg-black rounded-full shadow-lg border-2 border-white"></div>
+            </div>
+
+            <div class="mb-6 floating relative">
+                <i class="fas fa-ribbon text-8xl mimi-bow"></i>
+            </div>
+            
+            <h1 class="mimi-font text-5xl md:text-7xl text-pink-600 mb-4">¡Feliz Cumpleaños Mamá!</h1>
+            
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <div class="bg-black text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg border-2 border-white">46</div>
+                <div class="h-1 w-12 bg-pink-400 rounded-full"></div>
+                <span class="text-3xl font-bold text-gray-700 mimi-font">Años de Magia</span>
+            </div>
+            
+            <p class="text-gray-600 text-xl font-semibold mb-8">"Para la mujer más increíble, amorosa y valiente. Eres el corazón de nuestra familia."</p>
+            
+            <button id="btnSorpresa" class="mimi-red text-white px-10 py-4 rounded-full font-bold text-xl hover:scale-110 transition-transform shadow-xl flex items-center gap-3 mx-auto border-2 border-white">
+                <i class="fas fa-magic"></i> ¡Sorpresa de Mimi!
+            </button>
+        </div>
+    </section>
+
+    <!-- Galería de Recuerdos -->
+    <section class="py-24 px-6 bg-white relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="mimi-font text-6xl text-gray-800 mb-2 tracking-wide">Recuerdos</h2>
+                <p class="text-pink-400 font-bold uppercase tracking-widest text-sm">Momentos llenos de amor</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+                <!-- Foto 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="card-photo rounded-sm overflow-hidden w-full max-w-sm" style="transform: rotate(2deg);">
+                        <img src="WhatsApp Image 2026-03-24 at 4.32.38 PM.jpeg" alt="[Imagen de Mamá con Pastel]" class="img-fixed" onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=600&auto=format&fit=crop'">
+                        <div class="p-3 text-center">
+                            <p class="mimi-font text-2xl text-pink-500">¡El Gran Día!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="card-photo rounded-sm overflow-hidden w-full max-w-sm" style="transform: rotate(-3deg);">
+                        <img src="WhatsApp Image 2026-03-24 at 4.32.38 PM.jpeg.jpeg" alt="[Imagen Te Amo Mamita]" class="img-fixed" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop'">
+                        <div class="p-3 text-center">
+                            <p class="mimi-font text-2xl text-pink-500">Amor Infinito</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="card-photo rounded-sm overflow-hidden w-full max-w-sm" style="transform: rotate(3deg);">
+                        <img src="WhatsApp Image 2026-03-24 at 5.21.43 PM.jpeg" alt="[Imagen Familia]" class="img-fixed" onerror="this.src='https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=600&auto=format&fit=crop'">
+                        <div class="p-3 text-center">
+                            <p class="mimi-font text-2xl text-pink-500">Nuestra Guía</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 4 -->
+                <div class="flex flex-col items-center">
+                    <div class="card-photo rounded-sm overflow-hidden w-full max-w-sm" style="transform: rotate(-2deg);">
+                        <img src="WhatsApp Image 2026-03-24 at 5.21.47 PM.jpeg" alt="[Imagen con Sombreros]" class="img-fixed" onerror="this.src='https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=600&auto=format&fit=crop'">
+                        <div class="p-3 text-center">
+                            <p class="mimi-font text-2xl text-pink-500">Diversión</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 5 -->
+                <div class="flex flex-col items-center">
+                    <div class="card-photo rounded-sm overflow-hidden w-full max-w-sm" style="transform: rotate(1deg);">
+                        <img src="WhatsApp Image 2026-03-24 at 5.21.48 PM.jpeg" alt="[Imagen Cocina]" class="img-fixed" onerror="this.src='https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=600&auto=format&fit=crop'">
+                        <div class="p-3 text-center">
+                            <p class="mimi-font text-2xl text-pink-500">Momentos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 6 -->
+                <div class="flex flex-col items-center">
+                    <div class="card-photo rounded-sm overflow-hidden w-full max-w-sm" style="transform: rotate(-3deg);">
+                        <img src="WhatsApp Image 2026-03-24 at 5.21.48 PM (1).jpeg" alt="[Imagen Selfie]" class="img-fixed" onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600&auto=format&fit=crop'">
+                        <div class="p-3 text-center">
+                            <p class="mimi-font text-2xl text-pink-500">Juntos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-black text-white text-center border-t-4 border-pink-500">
+        <div class="mimi-font text-3xl mb-2 text-pink-400">Felices 46 Primaveras</div>
+        <p class="text-gray-500 text-sm tracking-widest uppercase">Hecho con amor para Mamá ❤️ 2026</p>
+    </footer>
+
+    <script>
+        // --- SISTEMA DE PARTÍCULAS NATIVO (SIN LIBRERÍAS) ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = canvas.width / 2;
+                this.y = canvas.height / 2;
+                this.size = Math.random() * 8 + 4;
+                this.speedX = Math.random() * 10 - 5;
+                this.speedY = Math.random() * -15 - 5;
+                this.gravity = 0.4;
+                this.color = ['#ff4d6d', '#ffffff', '#000000', '#ffd700'][Math.floor(Math.random() * 4)];
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 10 - 5;
+            }
+
+            update() {
+                this.speedY += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.rotation += this.rotationSpeed;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function createBurst() {
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                // Eliminar partículas fuera de pantalla
+                if (particles[i].y > canvas.height) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Iniciar bucle de animación
+        animate();
+
+        // Controladores de eventos
+        document.getElementById('btnSorpresa').addEventListener('click', (e) => {
+            e.preventDefault();
+            createBurst();
+        });
+
+        // Burst automático al cargar
+        setTimeout(createBurst, 1500);
+
+    </script>
+</body>
+</html>
